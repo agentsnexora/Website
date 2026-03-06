@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth snap-y snap-mandatory overflow-x-hidden">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXORA | Digital Empires</title>
+    <meta name="description" content="We Don’t Just Build Websites — We Build Digital Empires. NEXORA is a next-generation digital branding and development agency.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="NEXORA | Digital Empires">
+    <meta property="og:description" content="We Don’t Just Build Websites — We Build Digital Empires.">
+
+    <!-- Twitter -->
+    <meta name="twitter:title" content="NEXORA | Digital Empires">
+    <meta name="twitter:description" content="We Don’t Just Build Websites — We Build Digital Empires.">
+
+    <link rel="icon" href="https://img.icons8.com/dusk/64/000000/neural-network.png" type="image/png">
+
+    <!-- React & Tailwind -->
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/react@18/umd/react.production.min.js"></script>
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://resource.trickle.so/vendor_lib/unpkg/lucide-static@0.516.0/font/lucide.css" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Anime.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+
+    <style type="text/tailwindcss">
+    @layer theme {
+        :root {
+            /* Watery/Glass Theme */
+            --bg-dark: #050505;
+            --glass-surface: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --water-accent: #a5f3fc;
+            --text-primary: #ffffff;
+            --text-secondary: #9ca3af;
+        }
+    }
+
+    @layer base {
+        body {
+            @apply bg-[var(--bg-dark)] text-[var(--text-primary)] font-['Manrope'] overflow-x-hidden;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            @apply font-['Syncopate'];
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #000;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 10px;
+        }
+    }
+
+    @layer components {
+        .section-snap {
+            @apply snap-start snap-always h-auto min-h-screen flex flex-col justify-center relative;
+        }
+        .glass-panel {
+            @apply bg-[var(--glass-surface)] backdrop-blur-2xl border border-[var(--glass-border)] shadow-2xl transition-all duration-500;
+        }
+        .watery-card {
+            @apply relative overflow-hidden rounded-2xl border border-white/5 bg-white/5 backdrop-blur-xl transition-all duration-500;
+        }
+        .watery-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(255,255,255,0.06), transparent 40%);
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        .watery-card:hover::before {
+            opacity: 1;
+        }
+        .watery-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px -20px rgba(165, 243, 252, 0.1);
+            border-color: rgba(255,255,255,0.2);
+        }
+        .btn-water {
+            @apply relative overflow-hidden bg-white/5 border border-white/10 px-8 py-4 font-bold uppercase tracking-widest text-xs transition-all duration-300 hover:bg-white hover:text-black hover:scale-105;
+        }
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(100px) scale(0.95);
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        .btn-primary {
+            @apply relative overflow-hidden bg-transparent border border-[var(--water-accent)] text-[var(--water-accent)] px-8 py-3 font-bold uppercase tracking-wider transition-all duration-300 hover:bg-[var(--water-accent)] hover:text-black;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    
+    <!-- Shared Components -->
+    <script type="text/babel" src="components/Header.js"></script>
+    <script type="text/babel" src="components/Footer.js"></script>
+    
+    <!-- Sections/Components -->
+    <script type="text/babel" src="components/Hero.js"></script>
+    <script type="text/babel" src="components/About.js"></script>
+    <script type="text/babel" src="components/Services.js"></script>
+    <script type="text/babel" src="components/Portfolio.js"></script>
+    <script type="text/babel" src="components/WhyNexora.js"></script>
+    <script type="text/babel" src="components/Testimonials.js"></script>
+    <script type="text/babel" src="components/Contact.js"></script>
+    
+    <!-- Page Wrappers -->
+    <script type="text/babel" src="components/ServicePage.js"></script>
+    <script type="text/babel" src="components/PortfolioPage.js"></script>
+    
+    <!-- New Components -->
+    <script type="text/babel" src="components/Legal.js"></script>
+    <script type="text/babel" src="components/ThankYou.js"></script>
+    <script type="text/babel" src="components/CookieConsent.js"></script>
+    
+    <!-- Main App -->
+    <script type="text/babel" src="app.js"></script>
+</body>
+</html>
